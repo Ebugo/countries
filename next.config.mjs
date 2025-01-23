@@ -34,7 +34,7 @@ const nextConfig = {
           },
           {
             key: 'Access-Control-Allow-Origin',
-            value: 'null',
+            value: '*',
           },
           {
             key: 'Access-Control-Allow-Methods',
@@ -53,30 +53,6 @@ const nextConfig = {
     const fileLoaderRule = config.module.rules.find((rule) =>
       rule.test?.test?.('.svg')
     );
-
-    // config.module.rules.push({
-    //   test: /\.svg$/,
-    //   use: [
-    //     {
-    //       loader: '@svgr/webpack',
-    //       options: {
-    //         svgo: true,
-    //         svgoConfig: {
-    //           plugins: [
-    //             {
-    //               name: 'preset-default', // Ensure the correct plugin name
-    //               params: {
-    //                 overrides: {
-    //                   removeViewBox: false, // Preserve the viewBox attribute for responsive SVGs
-    //                 },
-    //               },
-    //             },
-    //           ],
-    //         },
-    //       },
-    //     },
-    //   ],
-    // });
 
     config.module.rules.push(
       // Reapply the existing rule, but only for svg imports ending in ?url
