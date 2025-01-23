@@ -1,7 +1,7 @@
 {
   "headers": [
     {
-      "source": "/(.*)", // Apply headers to all paths
+      "source": "/(.*)",
       "headers": [
         { "key": "Access-Control-Allow-Origin", "value": "*" },
         { "key": "Access-Control-Allow-Methods", "value": "GET, OPTIONS" },
