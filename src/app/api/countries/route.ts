@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import countries from "./index.json";
+import countries from "@/data/index.json";
 
 export async function GET() {
   try {
