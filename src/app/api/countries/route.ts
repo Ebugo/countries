@@ -5,11 +5,20 @@ export async function GET() {
   try {
     return NextResponse.json(
       {
-        data: countries?.sort((a, b) =>
-          (a?.name || "")?.localeCompare(b?.name || "", undefined, {
-            sensitivity: "base",
-          })
-        ),
+        data: countries
+          ?.sort((a, b) =>
+            (a?.name || "")?.localeCompare(b?.name || "", undefined, {
+              sensitivity: "base",
+            })
+          )
+          ?.map((country) => {
+            country.stateProvinces = country?.stateProvinces?.sort((a, b) =>
+              (a?.name || "")?.localeCompare(b?.name || "", undefined, {
+                sensitivity: "base",
+              })
+            );
+            return country;
+          }),
         message: "Countries loaded successfully",
       },
       {
